@@ -1,0 +1,101 @@
+<html>
+<head>	
+	<title>Language app By Anurag Gaiwal</title>
+	<style>
+		*{
+		  font-size:50px
+		}
+
+		body {
+		  background-color: lightblue;
+		  font-family: Arial, sans-serif; 
+		}
+
+		h1 {
+		  font-size: 2em; 
+		  margin-bottom: 20px;
+		}
+
+		input[type="text"] {
+		  padding: 10px;
+		  border: 1px solid #ccc;
+		  margin-bottom: 15px;
+		}
+
+		input[type="submit"] {
+		  background-color: #4CAF50; 
+		  color: white;
+		  padding: 10px 20px;
+		  border: none;
+		  border-radius: 5px;
+		  cursor: pointer; 
+		}
+
+		input[type="checkbox"]{
+			width:2%; 
+			height:0.5em;
+		}
+		
+		#msg {	
+		  color: #333; 
+		}
+
+		
+		.container{
+			border: 2px solid black;
+			width: 50%;
+		}
+
+	</style>
+</head>
+
+<body>
+<center>
+	<h1>Languages You know App</h1>
+	<form onsubmit="show()">
+		<input type="text" placeholder="Enter Name" id="name"/>
+		<br/> <br/>
+		<input type="checkbox" id="js"/> Javascript
+		<input type="checkbox" id="py"/> Python
+		<input type="checkbox" id="ja"/> Java
+		<input type="checkbox" id="c"/> C/C++
+		<br/> <br/>
+		<input type="submit" value="submit">
+	</form>
+	<div class="container">
+	<h2 id="msg"/>
+	</div>
+	<script>
+		function show(){
+		event.preventDefault()
+		let name = document.getElementById("name");
+		let msg = document.getElementById("msg");
+		let js = document.getElementById("js");
+		let ja = document.getElementById("ja");
+		let py = document.getElementById("py");
+		let c = document.getElementById("c");
+		if(name.value.trim() == ""){
+			alert("Name cannot be empty or blank spaces");
+			msg.innerHTML = "";
+			name.focus();
+			return;
+		}
+			
+		let choice = "";
+		if(js.checked)		choice += " JavaScript, ";
+		if(ja.checked)		choice += " Java, ";
+		if(py.checked)		choice += " Python, ";
+		if(c.checked)		choice += " C/C++, ";
+		
+		if(choice == ""){
+			choice = "Nothing Yet"
+		}
+		let ans = name.value + " Knows " + choice;
+		msg.innerHTML = ans;
+		}
+	</script>
+</center>
+</body>
+
+
+</html>
